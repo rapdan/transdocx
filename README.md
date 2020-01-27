@@ -14,9 +14,11 @@ pip install -r requirements.txt
 ## Create the Authentication Credentials ##
 You need to first generate a JSON Key File through the Google Developers Console.   
 [console.cloud.google.com/apis/credentials](https://console.cloud.google.com/apis/credentials)
+
 ![cloud](https://github.com/rapdan/transdocx/blob/master/pic/console_cloud.png)
 
 Fill the form and choose a “JSON” key type:
+
 ![create](https://github.com/rapdan/transdocx/blob/master/pic/create_json.png")
 
 
