@@ -15,16 +15,32 @@ def doc_trans(fn):
     doc = Document(fn)
 
     for para in doc.paragraphs:  # petla po paragrafach
-        if para.text != "":  # jezeli paragraf nie jest pusty probuj tłumaczyc
+        # jezeli paragraf nie jest pusty probuj tłumaczyc
+        if para.text != "":
             try:
                 tr_raw = g_tr.translate(para.text, target_language=target)
                 tr = tr_raw['translatedText']
             except Exception as e:
                 print(
-                    'Google Translation error, check connection or your google token', e)
+                    ''' Google Translation error, 
+                    check connection or your google .json''', e)
                 return
-            para.text = re.sub(para.text, para.text + '\n' + tr, para.text)
-            # paragraph.text = re.sub("USERNAME", "John", paragraph.text)
+            try:
+                # nie ma różnicy pomiedzy tłumaczeniem a paragrafem
+                if para.text == tr:
+                    continue  # przejdź do następnego paragrafu
+                # jeżeli znak specjalny na poczatku to nie tłumacz (zapewne kod)
+                elif re.search(r'^[#!$<>=()"@&\[\]{}]', para.text):
+                    continue  # nie tłumacz kodu
+                elif re.search(r'=', para.text):
+                    continue
+
+                # zastąp paragraf paragrafem z tłumaczeniem
+                para.text = re.sub(para.text, para.text +
+                                   '\n' + tr + '\n', para.text)
+                # paragraph.text = re.sub("USERNAME", "John", paragraph.text)
+            except Exception as e:
+                print('Error para.text', e)
             print(para.text)
 
     # save
