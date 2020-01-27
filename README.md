@@ -1,5 +1,5 @@
-# transdocx.py#
-## .docx document translator ##
+# transdocx.py
+## .docx document translator
 ## The program translates paragraphs of docx documents while maintaining the original content
 Your Google token should be in the file my_token.json  
 You can choose the target language (target variable).  
@@ -8,16 +8,16 @@ If you need to translate pdf files, I recommend [pdf2doc.com](https://pdf2doc.co
 Starting the program: 
 ## How to install? ##
 ```bash
-git clone https://github.com/rapdan/transdocx
+git clone https://github.com/rapdan/transdocx.git
 pip install -r requirements.txt
 ```
 ## Create the Authentication Credentials ##
 You need to first generate a JSON Key File through the Google Developers Console.   
 [console.cloud.google.com/apis/credentials](https://console.cloud.google.com/apis/credentials)
-![console_cloud](https://github.com/rapdan/transdocx/pic/console_cloud.png "Google console cloud")
+![cloud](https://github.com/rapdan/transdocx/blob/master/pic/console_cloud.png)
 
 Fill the form and choose a “JSON” key type:
-![console_cloud](https://github.com/rapdan/transdocx/pic/create_json.png "Create json file")
+![create](https://github.com/rapdan/transdocx/blob/master/pic/create_json.png")
 
 
 Save a “JSON” key as my_token.json in program directory.
