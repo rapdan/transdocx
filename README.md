@@ -19,7 +19,7 @@ You need to first generate a JSON Key File through the Google Developers Console
 
 Fill the form and choose a “JSON” key type:
 
-![create](https://github.com/rapdan/transdocx/blob/master/pic/create_json.png")
+![create](https://github.com/rapdan/transdocx/blob/master/pic/create_json.png)
 
 
 Save a “JSON” key as my_token.json in program directory.
