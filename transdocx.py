@@ -5,8 +5,9 @@ from docx import Document
 from google.cloud import translate_v2 as translate
 
 # Create your own account in Google Cloud Platform and generate a file .json
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = 'my_token.json'
-target = 'pl'  # you can change to another language
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = 'mytoken.json'
+# you can change to another language
+target = 'pl'
 g_tr = translate.Client()  # utworzenie instancji klasy translatora
 
 
@@ -22,8 +23,7 @@ def doc_trans(fn):
                 tr = tr_raw['translatedText']
             except Exception as e:
                 print(
-                    ''' Google Translation error, 
-                    check connection or your google .json''', e)
+                    ''' Google Translation error, check connection''', e)
                 return
             try:
                 # nie ma różnicy pomiedzy tłumaczeniem a paragrafem
@@ -52,6 +52,6 @@ def doc_trans(fn):
 
 
 if __name__ == '__main__':
-    # from sys import argv
-    # fn = argv[1]    # nazwa pliku docx do tłumaczenia
-    doc_trans('test.docx')
+    from sys import argv
+    fn = argv[1]    # nazwa pliku docx do tłumaczenia
+    doc_trans(fn)
