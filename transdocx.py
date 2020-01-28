@@ -5,7 +5,7 @@ from docx import Document
 from google.cloud import translate_v2 as translate
 
 # Create your own account in Google Cloud Platform and generate a file .json
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = 'mytoken.json'
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = 'my_token.json'
 # you can change to another language
 target = 'pl'
 g_tr = translate.Client()  # utworzenie instancji klasy translatora
