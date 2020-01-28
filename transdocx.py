@@ -30,15 +30,16 @@ def doc_trans(fn):
                 if para.text == tr:
                     continue  # przejdź do następnego paragrafu
                 # jeżeli znak specjalny na poczatku to nie tłumacz (zapewne kod)
-                elif re.search(r'^[#!$<>=()"@&\[\]{}]', para.text):
-                    continue  # nie tłumacz kodu
+                elif re.search(r'^[#!$<>=()@&\[\]{}_*]', para.text):
+                    continue
+                # jeżeli występuje znak '=' w paragrafie to tez nie tłumacz
+                # to zapewne kod komputerowy
                 elif re.search(r'=', para.text):
                     continue
 
-                # zastąp paragraf paragrafem z tłumaczeniem
-                para.text = re.sub(para.text, para.text +
-                                   '\n' + tr + '\n', para.text)
-                # paragraph.text = re.sub("USERNAME", "John", paragraph.text)
+                # Dodaj tłumaczenie z kursywa
+                para.add_run('\n' + tr + '\n').italic = True
+
             except Exception as e:
                 print('Error para.text', e)
             print(para.text)
@@ -51,6 +52,6 @@ def doc_trans(fn):
 
 
 if __name__ == '__main__':
-    from sys import argv
-    fn = argv[1]    # nazwa pliku docx do tłumaczenia
-    doc_trans(fn)
+    # from sys import argv
+    # fn = argv[1]    # nazwa pliku docx do tłumaczenia
+    doc_trans('test.docx')
