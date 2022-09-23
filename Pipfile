@@ -7,7 +7,7 @@ verify_ssl = true
 
 [packages]
 docx = "==0.2.4"
-protobuf = "==3.11.2"
+protobuf = "==3.18.3"
 python-docx = "*"
 google-cloud = "*"
 google-cloud-translate = "*"
